@@ -1,3 +1,4 @@
+import connection from "../database/db";
 import { signInSchema, signUpSchema } from "../models/model";
 
 export default async function checkSignUp(req, res, next) {
