@@ -20,7 +20,7 @@ export default async function signUp(req, res) {
 
     } catch (err) {
 
-        res.sendStatus(500);
+        res.status(500).send(err.message);
 
     }
 

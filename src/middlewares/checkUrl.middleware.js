@@ -1,8 +1,8 @@
 export async function checkUrlPost(req, res, next) {
 
-    const auth = req.headers.authorization;
+    const {authorization} = req.headers;
 
-    if (!auth) {
+    if (!authorization) {
         return res.sendStatus(401)
     }
 
