@@ -1,6 +1,5 @@
 export async function checkUrlPost(req, res, next) {
 
-
     const auth = req.headers.authorization;
 
     if (!auth) {
@@ -10,7 +9,7 @@ export async function checkUrlPost(req, res, next) {
     const confirmToken = auth.split(' ');
 
     if (confirmToken.length !== 2) {
-        return res.status(401).send({ message: 'Invalid token!' });
+        return res.status(422).send({ message: 'Invalid token!' });
     }
 
     next()

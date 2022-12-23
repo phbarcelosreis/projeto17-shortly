@@ -1,5 +1,7 @@
 import bcrypt from 'bcrypt';
 import connection from '../database/db.js';
+import dotenv from "dotenv";
+dotenv.config();
 
 export default async function signUp(req, res) {
 
