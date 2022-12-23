@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import connection from '../database.js';
+import connection from '../database/db.js';
 
 export default async function signUp(req, res) {
 
@@ -22,4 +22,21 @@ export default async function signUp(req, res) {
 
     }
 
+}
+
+export async function signIn(req, res) {
+
+    const { id } = res.locals.user;
+
+    try {
+
+        const token = jwt.sign({ id: id }, process.env.SECRET_JWT, { expiresIn: 86400 });
+
+        res.status(200).send({ token });
+
+    } catch (err) {
+
+        res.sendStatus(500);
+
+    }
 }
